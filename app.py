@@ -4,7 +4,7 @@ import joblib
 
 st.set_page_config(page_title="Predicción Diabetes", layout="wide")
 
-modelA = "Modelo A: Diagnóstico"
+modelA = "Modelo A: Clasificación binaria de presencia de diabetes"
 modelC = "Modelo C: Índice de Riesgo"
 
 with st.sidebar:
@@ -12,7 +12,7 @@ with st.sidebar:
     picked_model = st.radio(
         "Seleccione el modelo de predicción:",
         (modelA, modelC),
-        help="El modelo A es una herramienta de diganóstico para los médicos y el Modelo C es una predicción en base a los hábitos"
+        help="El modelo A incluye variables clínicas (glucosa) y el Modelo C es una predicción en base a los hábitos"
     )
     
     st.divider()
@@ -21,11 +21,11 @@ with st.sidebar:
 @st.cache_resource
 def load_assets(model_type):
     if model_type == modelA: 
-        model = joblib.load("model_A_forest.joblib")
-        preprocessor = joblib.load("preprocessor_A.joblib")
+        model = joblib.load("models/model_A_forest.joblib")
+        preprocessor = joblib.load("models/preprocessor_A.joblib")
     else: 
-        model = joblib.load("model_C_forest.joblib")
-        preprocessor = joblib.load("preprocessor_C.joblib")
+        model = joblib.load("models/model_C_forest.joblib")
+        preprocessor = joblib.load("models/preprocessor_C.joblib")
     return model, preprocessor
 
 try:
@@ -36,7 +36,7 @@ except Exception as e:
     )
     st.stop()
 
-st.title(f"Diagnóstico de Diabetes. {picked_model}")
+st.title(f"Clasificación binaria de presencia de diabetes. {picked_model}")
 if picked_model==modelA: 
     st.info(
         "Este modelo utiliza biomarcadores clínicos (Glucosa, HbA1c) para confirmar la presencia de diabetes."
