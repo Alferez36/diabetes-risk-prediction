@@ -3,6 +3,9 @@ Proyecto **end-to-end de Machine Learning** orientado a la predicción del riesg
 
 Se aborda tanto la **clasificación binaria** de diabetes como la **clasificación multiclase del tipo de diabetes**, además de desarrollar un modelo orientado a la **estimación temprana del riesgo** utilizando variables que pueden estar disponibles antes de realizar determinadas pruebas clínicas.
 
+## Demo
+[Probar la aplicación en Streamlit](https://diabetes-risk-prediction-ml.streamlit.app/)
+
 ## Puntos a destacar
 - Dataset con **100.000 resgistros de pacientes**.
 - Análisis exploratorio de los datos (EDA) y análisis de características.
