@@ -36,7 +36,7 @@ except Exception as e:
     )
     st.stop()
 
-st.title(f"Clasificación binaria de presencia de diabetes. {picked_model}")
+st.title(f"{picked_model}")
 if picked_model==modelA: 
     st.info(
         "Este modelo utiliza biomarcadores clínicos (Glucosa, HbA1c) para confirmar la presencia de diabetes."
